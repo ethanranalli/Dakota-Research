@@ -28,6 +28,9 @@ function initAsciiBackground() {
   let viewportWidth = 0;
   let viewportHeight = 0;
   let cellSize = Math.max(4, ASCII_BG_CONFIG.cellSize);
+  let activeCellSize = cellSize;
+  let activeMaxFps = ASCII_BG_CONFIG.maxFps;
+  let activeMaxCells = ASCII_BG_CONFIG.maxCells;
   let charWidth = cellSize * 0.62;
   let lineHeight = cellSize;
   let cols = 0;
@@ -41,8 +44,28 @@ function initAsciiBackground() {
   let resizeTimer = 0;
   let frameInterval = 1000 / ASCII_BG_CONFIG.maxFps;
 
+  const updateDeviceProfile = () => {
+    const isPhone = window.matchMedia("(max-width: 768px)").matches;
+    const isTablet = window.matchMedia("(max-width: 1024px)").matches;
+    if (isPhone) {
+      activeCellSize = Math.max(10, ASCII_BG_CONFIG.cellSize);
+      activeMaxFps = 8;
+      activeMaxCells = 2600;
+      return;
+    }
+    if (isTablet) {
+      activeCellSize = Math.max(9, ASCII_BG_CONFIG.cellSize);
+      activeMaxFps = 10;
+      activeMaxCells = 3200;
+      return;
+    }
+    activeCellSize = Math.max(4, ASCII_BG_CONFIG.cellSize);
+    activeMaxFps = ASCII_BG_CONFIG.maxFps;
+    activeMaxCells = ASCII_BG_CONFIG.maxCells;
+  };
+
   const updateMotionProfile = () => {
-    frameInterval = 1000 / (reducedMotion ? ASCII_BG_CONFIG.reducedFps : ASCII_BG_CONFIG.maxFps);
+    frameInterval = 1000 / (reducedMotion ? ASCII_BG_CONFIG.reducedFps : activeMaxFps);
   };
 
   const measureGlyph = () => {
@@ -63,13 +86,13 @@ function initAsciiBackground() {
   };
 
   const fitGridToBudget = () => {
-    let nextSize = Math.max(4, ASCII_BG_CONFIG.cellSize);
+    let nextSize = Math.max(4, activeCellSize);
     let estimatedCharWidth = nextSize * 0.62;
     let estimatedCols = Math.ceil(viewportWidth / estimatedCharWidth);
     let estimatedRows = Math.ceil(viewportHeight / nextSize);
     const estimatedCells = estimatedCols * estimatedRows;
-    if (ASCII_BG_CONFIG.adaptiveSize && estimatedCells > ASCII_BG_CONFIG.maxCells) {
-      const scale = Math.sqrt(estimatedCells / ASCII_BG_CONFIG.maxCells);
+    if (ASCII_BG_CONFIG.adaptiveSize && estimatedCells > activeMaxCells) {
+      const scale = Math.sqrt(estimatedCells / activeMaxCells);
       nextSize = Math.ceil(nextSize * scale);
       estimatedCharWidth = nextSize * 0.62;
       estimatedCols = Math.ceil(viewportWidth / estimatedCharWidth);
@@ -98,6 +121,8 @@ function initAsciiBackground() {
   const resize = (timeMs = performance.now()) => {
     viewportWidth = window.innerWidth;
     viewportHeight = window.innerHeight;
+    updateDeviceProfile();
+    updateMotionProfile();
     rebuildField();
     draw(timeMs);
   };
@@ -178,6 +203,7 @@ function initAsciiBackground() {
     mediaQuery.addListener(onReduceMotionChange);
   }
 
+  updateDeviceProfile();
   updateMotionProfile();
   resize();
   start();
