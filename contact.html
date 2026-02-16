@@ -42,7 +42,9 @@
     </section>
 
     <section class="panel contact reveal">
-      <form class="contact-form">
+      <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST" data-formspree="true">
+        <input type="hidden" name="_subject" value="New Dakota Research Inquiry">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
         <label>
           Name
           <input type="text" name="name" placeholder="Your full name" required>
@@ -57,6 +59,7 @@
         </label>
         <button type="submit" class="button button-primary">Submit Inquiry</button>
       </form>
+      <p class="portfolio-note">To activate email delivery, replace <code>your_form_id</code> with your real Formspree form ID.</p>
     </section>
   </main>
 

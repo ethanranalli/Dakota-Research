@@ -31,3 +31,11 @@ Then open `http://localhost:8080`.
 
 1. Place your portfolio file at `assets/docs/portfolio.pdf`.
 2. Open `portfolio.html` in the browser.
+
+## Enable contact emails (Formspree)
+
+1. Create a form at Formspree and copy your form endpoint ID.
+2. Open `contact.html` and update:
+   - `action="https://formspree.io/f/your_form_id"`
+3. Replace `your_form_id` with your real ID (example: `xabcdeyz`).
+4. Submissions will appear in your Formspree dashboard and can forward to your email.

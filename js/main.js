@@ -266,9 +266,20 @@ if ("IntersectionObserver" in window) {
 
 const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert("Thanks. Your inquiry has been captured. We will follow up within 1 business day.");
-    contactForm.reset();
-  });
+  const action = contactForm.getAttribute("action") || "";
+  const isExternalPost = /^https?:\/\//i.test(action);
+  const isPlaceholderFormspree = /formspree\.io\/f\/your_form_id/i.test(action);
+
+  if (isPlaceholderFormspree) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("Set your Formspree form ID in contact.html to enable email delivery.");
+    });
+  } else if (!isExternalPost) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("Thanks. Your inquiry has been captured. We will follow up within 1 business day.");
+      contactForm.reset();
+    });
+  }
 }

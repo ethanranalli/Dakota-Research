@@ -411,9 +411,9 @@ textarea:focus {
   margin: 0 auto 0.6rem;
 }
 
-@media (min-width: 1025px) {
-  .portfolio-image {
-    image-rendering: -webkit-optimize-contrast;
+@media (min-width: 1200px) {
+  .portfolio-scroll {
+    width: 1000px;
   }
 }
 
