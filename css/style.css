@@ -388,8 +388,8 @@ textarea:focus {
 }
 
 .portfolio-scroll {
-  height: clamp(460px, 74vh, 860px);
-  width: min(96vw, 1000px);
+  height: clamp(500px, 76vh, 900px);
+  width: min(90vw, 1080px);
   margin: 0 auto;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -404,10 +404,17 @@ textarea:focus {
 .portfolio-image {
   display: block;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
   height: auto;
+  image-rendering: auto;
   border-radius: 8px;
   margin: 0 auto 0.6rem;
+}
+
+@media (min-width: 1025px) {
+  .portfolio-image {
+    image-rendering: -webkit-optimize-contrast;
+  }
 }
 
 .portfolio-image:last-child {
