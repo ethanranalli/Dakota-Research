@@ -16,15 +16,26 @@
       <span class="brand-mark">DR</span>
       <span>Dakota Research</span>
     </a>
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-    <nav class="site-nav">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#process">Process</a>
+    <button class="menu-toggle drawer-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-drawer">
+      <span class="menu-icon" aria-hidden="true"></span>
+      <span class="menu-label">Menu</span>
+    </button>
+  </header>
+  <aside id="site-drawer" class="side-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <p>Navigate</p>
+      <button class="drawer-close" aria-label="Close navigation">Close</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="process.html">Process</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
-      <a class="cta-link" href="index.html#contact">Start a Project</a>
+      <a href="contact.html">Contact</a>
     </nav>
-  </header>
+  </aside>
+  <button class="drawer-overlay" aria-label="Close navigation" tabindex="-1"></button>
 
   <main>
     <section class="hero reveal">

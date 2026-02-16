@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Dakota Research</title>
-  <meta name="description" content="Meet Dakota Research, an applied research studio focused on evidence-backed strategy.">
+  <title>Contact | Dakota Research</title>
+  <meta name="description" content="Contact Dakota Research for project inquiries.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -39,44 +39,32 @@
 
   <main>
     <section class="hero reveal">
-      <p class="eyebrow">About Dakota Research</p>
-      <h1>Dakota Research is an independent research company.</h1>
+      <p class="eyebrow">Contact</p>
+      <h1>Bring Us Your Hardest Question.</h1>
     </section>
 
-    <section class="panel reveal">
-      <div class="section-heading">
-        <p class="eyebrow">Our Principles</p>
-        <h2>How We Operate</h2>
-      </div>
-      <div class="grid three-col">
-        <article class="card">
-          <h3>Method Over Opinion</h3>
-          <p>We define assumptions and confidence levels explicitly so decisions are auditable and explainable.</p>
-        </article>
-        <article class="card">
-          <h3>Client-Embedded</h3>
-          <p>We work directly with leadership and delivery teams to ensure insights are adopted, not shelved.</p>
-        </article>
-        <article class="card">
-          <h3>Action-First Outputs</h3>
-          <p>Every final report includes ranked options, implementation pathways, and measurable checkpoints.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel reveal">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>Work With Dakota Research</h2>
-      </div>
-      <p>For project inquiries, use the contact page form.</p>
-      <p><a href="contact.html">Go to Contact Form</a></p>
+    <section class="panel contact reveal">
+      <form class="contact-form">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="Your full name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="you@company.com" required>
+        </label>
+        <label>
+          Project Focus
+          <textarea name="message" rows="4" placeholder="What decision are you trying to make?" required></textarea>
+        </label>
+        <button type="submit" class="button button-primary">Submit Inquiry</button>
+      </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 Dakota Research. All rights reserved.</p>
-    <a href="portfolio.html">View Portfolio</a>
+    <a href="index.html">Back to Home</a>
   </footer>
 
   <script src="js/main.js"></script>
