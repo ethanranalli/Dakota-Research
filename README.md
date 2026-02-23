@@ -12,7 +12,7 @@ Static multi-page website scaffold for Dakota Research.
 - `css/style.css`: shared black/white styles and sliding drawer UI
 - `js/main.js`: drawer navigation behavior
 - `assets/images/`: image assets
-- `assets/Logo Assets/`: logo files (header brand image)
+- `assets/logo-assets/`: logo files (header brand image)
 - `assets/docs/`: downloadable PDFs/briefs
 
 ## Run locally
@@ -26,5 +26,6 @@ python -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
+
 
 
