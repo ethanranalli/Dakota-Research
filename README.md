@@ -5,8 +5,6 @@ Static multi-page website scaffold for Dakota Research.
 ## Structure
 
 - `index.html`: main landing page
-- `services.html`: standalone services page
-- `process.html`: standalone process page
 - `about.html`: company background page
 - `portfolio.html`: portfolio page with embedded PDF viewer
 - `css/style.css`: shared black/white styles and sliding drawer UI
@@ -26,6 +24,4 @@ python -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
-
-
 

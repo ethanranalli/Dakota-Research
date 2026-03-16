@@ -1,8 +1,11 @@
+document.body.classList.add("js-ready");
+
 const drawerToggle = document.querySelector(".drawer-toggle");
 const sideDrawer = document.querySelector(".side-drawer");
 const drawerOverlay = document.querySelector(".drawer-overlay");
 const drawerClose = document.querySelector(".drawer-close");
 const drawerLinks = document.querySelectorAll(".drawer-nav a");
+let lastFocusedElement = null;
 
 const setDrawerState = (open) => {
   if (!drawerToggle || !sideDrawer || !drawerOverlay) return;
@@ -12,6 +15,19 @@ const setDrawerState = (open) => {
   document.body.classList.toggle("drawer-open", open);
   drawerToggle.setAttribute("aria-expanded", String(open));
   sideDrawer.setAttribute("aria-hidden", String(!open));
+
+  if (open) {
+    lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : drawerToggle;
+    window.setTimeout(() => {
+      const focusTarget = drawerClose || sideDrawer.querySelector("a");
+      if (focusTarget instanceof HTMLElement) {
+        focusTarget.focus();
+      }
+    }, 0);
+  } else if (lastFocusedElement instanceof HTMLElement) {
+    lastFocusedElement.focus();
+    lastFocusedElement = null;
+  }
 };
 
 if (drawerToggle && sideDrawer && drawerOverlay) {
@@ -49,6 +65,8 @@ if ("IntersectionObserver" in window) {
   );
 
   revealItems.forEach((item) => observer.observe(item));
+} else {
+  document.querySelectorAll(".reveal").forEach((item) => item.classList.add("visible"));
 }
 
 const warmInstagramEmbed = (() => {
