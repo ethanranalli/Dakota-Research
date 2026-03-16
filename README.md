@@ -1,17 +1,18 @@
 # Dakota Research Website
 
-Static multi-page website scaffold for Dakota Research.
+Static multi-page website for Dakota Research.
 
 ## Structure
 
-- `index.html`: main landing page
-- `about.html`: company background page
-- `portfolio.html`: portfolio page with embedded PDF viewer
-- `css/style.css`: shared black/white styles and sliding drawer UI
-- `js/main.js`: drawer navigation behavior
-- `assets/images/`: image assets
-- `assets/logo-assets/`: logo files (header brand image)
-- `assets/docs/`: downloadable PDFs/briefs
+- `index.html`: landing page with centered links to the main sections
+- `projects.html`: project archive page
+- `studio.html`: studio information page
+- `journal.html`: journal page with Instagram link
+- `projects/`: individual project detail pages
+- `css/style.css`: shared site styles
+- `assets/images/`: project image assets
+- `assets/logo-assets/`: logo files used in the header
+- `assets/docs/`: supporting documents
 
 ## Run locally
 
@@ -24,4 +25,3 @@ python -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
-
