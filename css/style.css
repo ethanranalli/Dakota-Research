@@ -41,7 +41,7 @@ a:hover {
 
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -203,6 +203,7 @@ img {
 }
 
 .image-stack img {
+  width: 100%;
   border: 1px solid var(--line);
   background: #ebe6dc;
 }
